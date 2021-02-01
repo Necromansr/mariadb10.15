@@ -4,7 +4,7 @@ MAINTAINER necromanqq <necromanqq@test.com>
 RUN echo -e "[mariadb]\nname = MariaDB\nbaseurl = http://yum.mariadb.org/10.5/centos7-amd64\nenabled = 1\ngpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB\ngpgcheck = 1"  > /etc/yum.repos.d/MariaDB.repo
 
 RUN yum -y install epel-release && \
-	yum -y install "https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-4.noarch.rpm" && \
+	yum -y install percona-release && \
 	yum clean all
 
 RUN yum install -y which MariaDB-server MariaDB-client socat percona-xtrabackup && \
