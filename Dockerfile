@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER necromanqq <necromanqq@test.com>
 
-RUN echo -e "[mariadb]\nname = MariaDB\nbaseurl = http://yum.mariadb.org/10.5/centos7-amd64\nenabled = 1\ngpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB\ngpgcheck = 1"  > /etc/yum.repos.d/MariaDB.repo
+RUN echo -e "[mariadb]\nname = MariaDB\nbaseurl = http://yum.mariadb.org/10.1/centos7-amd64\nenabled = 1\ngpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB\ngpgcheck = 1"  > /etc/yum.repos.d/MariaDB.repo
 
 # RUN rpmkeys --import https://www.percona.com/downloads/RPM-GPG-KEY-percona && \ 
 # 	yum -y install https://mirrors.cloud.tencent.com/percona/release/7/RPMS/noarch/percona-release-1.0-9.noarch.rpm
