@@ -61,8 +61,8 @@ fi
 			DELETE FROM mysql.user ;
 			CREATE USER 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;
 			GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION ;
-			CREATE USER 'xtrabackup'@'localhost' IDENTIFIED BY '$XTRABACKUP_PASSWORD';
-			GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT ON *.* TO 'xtrabackup'@'localhost';
+			CREATE USER 'mariabackup'@'localhost' IDENTIFIED BY '$MARIABACKUP_PASSWORD';
+			GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT ON *.* TO 'mariabackup'@'localhost';
 			GRANT REPLICATION CLIENT ON *.* TO monitor@'%' IDENTIFIED BY 'monitor';
 			DROP DATABASE IF EXISTS test ;
 			FLUSH PRIVILEGES ;
@@ -297,4 +297,4 @@ else
 	export _WSREP_NEW_CLUSTER=''
 fi
 
-exec mysqld --wsrep_cluster_name=$CLUSTER_NAME --wsrep-cluster-address="gcomm://$cluster_join" --wsrep_sst_auth="xtrabackup:$XTRABACKUP_PASSWORD" $_WSREP_NEW_CLUSTER $CMDARG
+exec mysqld --wsrep_cluster_name=$CLUSTER_NAME --wsrep-cluster-address="gcomm://$cluster_join" --wsrep_sst_auth="mariabackup:$MARIABACKUP_PASSWORD" $_WSREP_NEW_CLUSTER $CMDARG
