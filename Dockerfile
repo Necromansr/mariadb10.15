@@ -6,7 +6,7 @@ RUN echo -e "[mariadb]\nname = MariaDB\nbaseurl = http://yum.mariadb.org/10.5/ce
 # RUN rpmkeys --import https://www.percona.com/downloads/RPM-GPG-KEY-percona && \ 
 # 	yum -y install https://mirrors.cloud.tencent.com/percona/release/7/RPMS/noarch/percona-release-1.0-9.noarch.rpm
 # # percona-xtrabackup
-RUN yum install -y which MariaDB-server MariaDB-client socat MariaDB-backup  && \
+RUN yum install -y which MariaDB-server MariaDB-client socat rsync && \
 	yum clean all 
 
 ADD my.cnf /etc/my.cnf
